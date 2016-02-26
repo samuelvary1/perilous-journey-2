@@ -5,15 +5,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-	<p>
+	<% if flash[:notice] %>
+		<div class="alert alert-dismissible alert-success">
+		  <a href class="close" data-dismiss="alert">x</a>
+		  <strong><%= flash[:notice] %></strong>
+		</div>
+  <% end %>
+
+
+		
+
+	<div class="container-fluid">
+
 		<% if logged_in? %>
-			Current user is: <%= current_user.email %>
-			<%= link_to "Log Out", log_out_path, method: :destroy %>
+			<h5><%= current_user.email %>
+			<%= link_to "Log Out", log_out_path, method: :destroy, class: 'btn btn-warning btn-xs', style: 'margin-bottom: 10px; float: right;' %></h5>
 		<% else %>
-			<%= link_to "Sign Up", sign_up_path %> |
-			<%= link_to "Log In", new_session_path %>
+			<h5><%= link_to "Sign Up", sign_up_path %> |
+			<%= link_to "Log In", new_session_path %></h5>
 		<% end %>
-	</p>
+	</div>
 
 	<% if @location.nil? %>
 
