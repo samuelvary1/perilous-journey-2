@@ -15,8 +15,7 @@
  */
 
 
-@import "bootswatch/cerulean/variables";
-
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 body { 
@@ -25,4 +24,3 @@ body {
 
 @import "bootswatch/slate/bootswatch";
 
-@import "base";
