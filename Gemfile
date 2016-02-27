@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'less-rails'
+gem 'twitter-bootswatch-rails', :github => 'scottvrosenthal/twitter-bootswatch-rails'
+gem 'therubyracer', '~> 0.12.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
@@ -34,6 +37,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :production, :staging do 
+	gem 'rails_12factor'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
