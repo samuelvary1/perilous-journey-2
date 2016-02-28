@@ -17,6 +17,10 @@ class LocationsController < ApplicationController
 		pickup = @location.items.find do |item|
 			item.name == params[:item]
 		end
+		grab_item(pickup)
+	end
+
+	def grab_item(pickup)
 		respond_to do |format|
 			if @location.items.include?(pickup)
 				@character.items << pickup
