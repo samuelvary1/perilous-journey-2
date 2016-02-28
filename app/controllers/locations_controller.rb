@@ -1,4 +1,3 @@
-require 'pry'
 class LocationsController < ApplicationController
 
 	before_filter :authenticate
