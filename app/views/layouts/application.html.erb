@@ -10,6 +10,13 @@
 		  <a href class="close" data-dismiss="alert">x</a>
 		  <strong><%= flash[:notice] %></strong>
 		</div>
+	<% elsif flash[:alert] %>
+	
+		<div class="alert alert-dismissible alert-danger">
+		  <a href class="close" data-dismiss="alert">x</a>
+			<strong><%= flash[:alert] %></strong>
+		</div>
+
   <% end %>
 
   <title>JOURNEY</title>

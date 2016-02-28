@@ -22,9 +22,9 @@ class LocationsController < ApplicationController
 				@character.items << pickup
 				@location.items.delete(pickup)
 				pickup.location_id = nil
-				format.html { redirect_to "/locations/#{@location.id}/current_items", notice: "You've picked up the #{pickup.name}!"}
+				format.html { redirect_to :back, notice: "You've picked up the #{pickup.name}!"}
 			else
-				format.html { redirect_to "/locations/#{@location.id}/current_items", notice: "Sorry, that item either isn't here, you've already grabbed it, or you've typed the wrong name. Try again!"}
+				format.html { redirect_to :back, alert: "Sorry, that item either isn't here, you've already grabbed it, or you've typed the wrong name. Try again!"}
 			end
 		end
 	end
