@@ -1,17 +1,24 @@
 <% unless @character.items.empty? %>
 
-	<p>You are currently holding:</p>
+<div class="container-fluid">
+	<h3>You are currently holding:</h3>
+</div>
 
-	<% @character.items.each do |item| %>
+<div class="col-lg-4">
+	<div class="list-group">
+		<% @character.items.each do |item| %>
 
-			<p>
-				<strong><%= item.name.capitalize %>:</strong> <%= item.description %>
-			</p>
+			<a href="#" class="list-group-item"><strong><%= item.name.capitalize %>:</strong> <%= item.description %></a>
 
-		<% end %>
+			<% end %>
+
+	</div>
+</div>
 
 	<% else %>
 
 	<p>You are not currently holding anything.</p>
 
 <% end %>
+
+
