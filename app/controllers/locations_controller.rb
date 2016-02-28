@@ -10,16 +10,7 @@ class LocationsController < ApplicationController
 		@location = Location.find(params[:id])
 		render "details"
 	end
-
-	def pickup	
-		@character = Character.first
-		@location = Location.find(params[:id])
-		pickup = @location.items.find do |item|
-			item.name == params[:item]
-		end
-		grab_item(pickup)
-	end
-
+	
 	def grab_item(pickup)
 		respond_to do |format|
 			if @location.items.include?(pickup)
@@ -31,6 +22,15 @@ class LocationsController < ApplicationController
 				format.html { redirect_to :back, alert: "Sorry, that item either isn't here, you've already grabbed it, or you've typed the wrong name. Try again!"}
 			end
 		end
+	end
+
+	def pickup	
+		@character = Character.first
+		@location = Location.find(params[:id])
+		pickup = @location.items.find do |item|
+			item.name == params[:item]
+		end
+		grab_item(pickup)
 	end
 
 	def current_items
