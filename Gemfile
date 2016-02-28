@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'pry-nav', group: [:development, :test]
 gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
