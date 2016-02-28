@@ -18,6 +18,5 @@ Rails.application.routes.draw do
   get '/locations/:id/pickup', to: 'locations#pickup'
   get '/locations/:id/details', to: 'locations#details'
   get '/locations/:id/current_items', to: 'locations#current_items'
-  post '/locations/:id/pickup', to: 'characters#pickup_item'
 
 end
