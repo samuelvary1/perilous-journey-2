@@ -15,7 +15,7 @@
         <li><a href="/locations/<%= @location.id %>">Main Story</a></li>
         <li><a href="/locations/<%= @location.id %>/details">Look Around</a></li>
         <li><a href="/locations/<%= @location.id %>/current_items">View Inventory</a></li>
-        <li><a href="/locations/<%= @location.id + 1 %>">Go to Next Chapter</a></li>        
+        <li><%= link_to "Go to next Chapter", set_current_location_path %></li>        
       </ul>
       <form class="navbar-form navbar-left" role="search" action="/locations/<%= @location.id %>/pickup">
         <div class="form-group">

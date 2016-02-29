@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   resources :items
   resources :sessions
 
-  get '/locations/:id/pickup', to: 'locations#pickup'
+  get '/locations/:id/pickup', to: 'items#pickup'
   get '/locations/:id/details', to: 'locations#details'
   get '/locations/:id/current_items', to: 'locations#current_items'
+  get '/locations/:id/set_current_location', to: 'locations#set_current_location', as: 'set_current_location'
+
+  post 'drop_item/:id', to: "items#drop_item", as: 'drop_item'
 
 end
