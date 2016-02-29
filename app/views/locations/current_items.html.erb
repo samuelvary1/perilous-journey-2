@@ -11,9 +11,11 @@
 			<a href="#" class="list-group-item">
 				<h4 class="list-group-item-heading"><%= item.name.capitalize %>:</h4> 
 				<p class="list-group-item-text"><%= item.description.capitalize %></p>
+				<p><%= button_to 'Drop item', drop_item_path(item), class: "btn btn-default" %></p>
 			</a>
 
 			<% end %>
+
 
 	</div>
 </div>

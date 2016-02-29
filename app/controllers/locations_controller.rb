@@ -1,38 +1,39 @@
 class LocationsController < ApplicationController
 
 	before_filter :authenticate
+	
+	def set_current_location
+		# binding.pry
+		@character = Character.first
+		@new_location = Location.find(params[:id].to_i + 1)
+		@character.items.each do |item|
+			item.location_id = @new_location.id
+			item.save
+		end
+		@character.save
+
+		redirect_to @new_location
+		# binding.pry
+	end
 
 	def show
 		@location = Location.find(params[:id])
 	end
+
+	# def advance
+	# 	key_items = {
+	# 		1 => "key"
+	# 	}
+
+	# 	@character = Character.first
+	# 	if @character.include?(key_items[1])
+	# end
 
 	def details
 		@location = Location.find(params[:id])
 		render "details"
 	end
 	
-	def grab_item(pickup)
-		respond_to do |format|
-			if @location.items.include?(pickup)
-				@character.items << pickup
-				@location.items.delete(pickup)
-				pickup.location_id = nil
-				format.html { redirect_to :back, notice: "You've picked up the #{pickup.name}!"}
-			else
-				format.html { redirect_to :back, alert: "Sorry, that item either isn't here, you've already grabbed it, or you've typed the wrong name. Try again!"}
-			end
-		end
-	end
-
-	def pickup	
-		@character = Character.first
-		@location = Location.find(params[:id])
-		pickup = @location.items.find do |item|
-			item.name == params[:item]
-		end
-		grab_item(pickup)
-	end
-
 	def current_items
 		@location = Location.find(params[:id])
 		@character = Character.first
