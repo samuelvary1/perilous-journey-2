@@ -19,16 +19,7 @@ class LocationsController < ApplicationController
 	def show
 		@location = Location.find(params[:id])
 	end
-
-	# def advance
-	# 	key_items = {
-	# 		1 => "key"
-	# 	}
-
-	# 	@character = Character.first
-	# 	if @character.include?(key_items[1])
-	# end
-
+	
 	def details
 		@location = Location.find(params[:id])
 		render "details"
