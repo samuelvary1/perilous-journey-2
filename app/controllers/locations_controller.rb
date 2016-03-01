@@ -18,8 +18,15 @@ class LocationsController < ApplicationController
 
 	def show
 		@location = Location.find(params[:id])
+		@plot_array = @location.plot.split(". ")
 	end
-	
+
+	def next_plot_section
+		i = 0
+		i += 1
+		redirect_to :back
+	end
+
 	def details
 		@location = Location.find(params[:id])
 		render "details"

@@ -1,5 +1,8 @@
 <div class="container-fluid">
 	<div class="well">
-		<p><%= @location.plot %></p>
+		<% i = 0 %>
+		<p><%= @plot_array[i] %>.</p>
+		<p><%= link_to 'Next', next_plot_section_path, class: "btn btn-default" %></p>
+
 	</div>
 </div>
