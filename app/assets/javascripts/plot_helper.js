@@ -6,12 +6,12 @@ $(function(){
 
 	var sentences = chapterOne.split(". ");
 
-	$('#current-sentence').text(sentences[counter]);
+	$('#current-sentence').text(sentences[counter] + ".");
 
 	$('#next').click(function () {
 
 		counter = (counter + 1) % sentences.length;
 		
-		$('#current-sentence').text(sentences[counter]);
+		$('#current-sentence').text(sentences[counter] + ".");
 	});
 });
