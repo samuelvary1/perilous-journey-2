@@ -17,17 +17,29 @@ class LocationsController < ApplicationController
 	end
 
 	def show
+
 		@location = Location.find(params[:id])
+		@plot_array = @location.plot.split(". ")
+		@plot_hash = Hash[@plot_array.map.with_index.to_a]
+
+
 	end
 
-	# def advance
-	# 	key_items = {
-	# 		1 => "key"
-	# 	}
+	def next_plot
 
-	# 	@character = Character.first
-	# 	if @character.include?(key_items[1])
-	# end
+		@location = Location.find(params[:id])
+		@plot_array = @location.plot.split(". ")
+		# @cycle_object = @plot_array.cycle.each
+		# @segment = @cycle_object.next
+		index = params[:index].to_i
+		@current_sentence = @plot_array[index]
+		@updated_sentence = @plot_array[index + 1]
+		redirect_to @location
+	end
+
+	# have the array hidden on the page and have the first sentence visible, 
+	# jquery on click next, swap out the next sentence 
+
 
 	def details
 		@location = Location.find(params[:id])

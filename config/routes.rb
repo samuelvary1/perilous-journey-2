@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get '/locations/:id/set_current_location', to: 'locations#set_current_location', as: 'set_current_location'
 
   post 'drop_item/:id', to: "items#drop_item", as: 'drop_item'
+  post '/locations/:id/next_plot', to: "locations#next_plot", as: 'next_plot'
 
 end
